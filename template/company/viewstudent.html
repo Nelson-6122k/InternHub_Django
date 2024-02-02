@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>About Company</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  	<link href="{% static 'css/style.css' %} " rel="stylesheet">
+    <style>
+          body{
+              background-image: url('{% static "images/background.jpg" %}');
+              background-repeat: no-repeat;
+              background-attachment: fixed;
+              background-size: 100% 100%;
+          }
+
+      </style>
+</head>
+<body class="prevent-select">
+	
+		<div class="container p-3" style="background-color: #f1f1f1;">
+			
+			<!-- HEADER DIV -->
+			<div class="row header">
+				<div class="col-3 col-sm-3">
+				<img src="{% static 'images/title.png' %}" alt="Company Logo" style=" height: 64px; width: auto;" class="companyLogo">
+				</div>
+				<div class="col-7 col-sm-7">
+				</div>
+				<div class="col-2 col-sm-2">
+				<img src="{{comdb.profilepic.url}}" alt="User Icon" style="width: 34px; height: 34px;" class="usericon rounded-pill "><br>{{comdb.companyname}}<br><a href="{% url 'logout' %}">Log out</a>
+				</div>
+			</div>
+
+			<br>
+			<hr style="color:#242582; height:3px;">
+            <br>
+
+			<div id="studentdetails">
+			<center>
+				<h2 style="color:rgb(158, 65, 107); margin-bottom:5%;">
+					Stduent Name&nbsp;:&nbsp;&nbsp;<b>{{studb.firstname}}  {{studb.lastname}}</b>
+				</h2>
+
+				<img src="{{studb.profilepic.url}}" alt="company profile pic" style="width: 35%; height: auto; border: solid #553d67;">
+				<br><br><br><h5>
+                <table border="0" cellpadding="20px">
+                    <tr>
+                        <td>Address </td>
+                        <td>:&nbsp;&nbsp;&nbsp;{{studb.address}}</td>
+                    </tr>
+                    <tr>
+                        <td>Email </td>
+                        <td>:&nbsp;&nbsp;&nbsp;{{studb.email}}</td>
+                    </tr>
+                    <tr>
+                        <td>Phone </td>
+                        <td>:&nbsp;&nbsp;&nbsp;{{studb.tel}}</td>
+                    </tr>
+                    <tr>
+                        <td>University </td>
+                        <td>:&nbsp;&nbsp;&nbsp;{{studb.university}}</td>
+                    </tr>
+                    <tr>
+                        <td>Degree </td>
+                        <td>:&nbsp;&nbsp;&nbsp;{{studb.degree}}</td>
+                    </tr>
+                    <tr>
+                        <td>Linkedin </td>
+                        <td>:&nbsp;&nbsp;&nbsp;<a href="{{ studb.linkedin }}" target="_blank">{{studb.linkedin}}</a></td>
+                    </tr>
+                </table></h5>
+		
+			</center>
+			</div>
+            
+			<center>
+			<div id="backbtndiv">
+            <a href="{% url 'commsg' comdb.comid %}"><button class="commonbtn">Back</button></a>
+			</div>
+			</center>
+
+			<hr style="color:#242582; height:3px;">
+
+        </div>
+        </body>
+        </html>
